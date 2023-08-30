@@ -1,0 +1,37 @@
+debug: false
+spring:
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  datasource:
+    url: jdbc:mariadb://localhost:3306/test
+    username: root
+    password: 123456
+
+server:
+  port: 8080
+  #  address: "127.0.0.1"
+  address: "0.0.0.0"
+  tomcat:
+    #响应时长
+    connection-timeout: 20000
+    #tomcat日志
+    basedir: logs
+    accesslog:
+      pattern: '%t %m %s %U %a'
+      enabled: true
+      directory: "./"
+  #压缩
+  compression:
+    enabled: true
+
+#启动日志
+logging:
+  config: classpath:log4j2.xml
+
+bezkoder:
+  app:
+    jwtSecret: ======================BezKoder=Spring===========================
+    jwtExpirationMs: 86400000
