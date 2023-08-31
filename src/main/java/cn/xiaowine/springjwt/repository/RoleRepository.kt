@@ -1,6 +1,6 @@
 package cn.xiaowine.springjwt.repository
 
-import cn.xiaowine.springjwt.models.ERole
+import cn.xiaowine.springjwt.entity.ERole
 import cn.xiaowine.springjwt.models.Role
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository

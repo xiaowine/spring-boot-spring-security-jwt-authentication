@@ -1,10 +1,11 @@
 package cn.xiaowine.springjwt.controllers
 
-import cn.xiaowine.springjwt.models.ERole
+import cn.xiaowine.springjwt.entity.ERole
 import cn.xiaowine.springjwt.models.User
 import cn.xiaowine.springjwt.entity.LoginEntity
 import cn.xiaowine.springjwt.entity.SignupEntity
 import cn.xiaowine.springjwt.entity.JwtResultEntity
+import cn.xiaowine.springjwt.entity.ResultEntity
 import cn.xiaowine.springjwt.repository.RoleRepository
 import cn.xiaowine.springjwt.repository.UserRepository
 import cn.xiaowine.springjwt.tools.JwtTools
@@ -31,7 +32,7 @@ class AuthController(
 
 
     @PostMapping("/signin")
-    fun authenticateUser(@RequestBody @Validated loginRequest: LoginEntity): ResponseEntity<*> {
+    fun authenticateUser(@RequestBody @Validated loginRequest: LoginEntity): ResponseEntity<JwtResultEntity> {
         val authentication = authenticationManager.authenticate(
             UsernamePasswordAuthenticationToken(loginRequest.username, loginRequest.password)
         )
@@ -43,7 +44,7 @@ class AuthController(
     }
 
     @PostMapping("/signup")
-    fun registerUser(@RequestBody @Validated signUpRequest: SignupEntity): ResponseEntity<*> {
+    fun registerUser(@RequestBody @Validated signUpRequest: SignupEntity): ResponseEntity<ResultEntity> {
         if (userRepository.existsByUsername(signUpRequest.username)) {
             return ResponseTools.badRequest("Username is already taken!")
         }

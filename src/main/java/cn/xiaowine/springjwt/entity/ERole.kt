@@ -1,4 +1,4 @@
-package cn.xiaowine.springjwt.models
+package cn.xiaowine.springjwt.entity
 
 enum class ERole {
     ROLE_USER,

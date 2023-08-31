@@ -14,9 +14,19 @@ class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long = 0
-    var username: @NotBlank @Size(max = 20) String = ""
-    var email: @NotBlank @Size(max = 50) @Email String = ""
-    var password: @NotBlank @Size(max = 120) String = ""
+
+    @NotBlank
+    @Size(max = 20)
+    var username: String = ""
+
+    @NotBlank
+    @Size(max = 50)
+    @Email
+    var email: String = ""
+
+    @NotBlank
+    @Size(max = 120)
+    var password: String = ""
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(

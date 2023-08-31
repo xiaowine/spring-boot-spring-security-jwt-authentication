@@ -1,5 +1,6 @@
 package cn.xiaowine.springjwt.models
 
+import cn.xiaowine.springjwt.entity.ERole
 import jakarta.persistence.*
 
 @Entity
